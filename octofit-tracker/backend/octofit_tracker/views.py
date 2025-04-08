@@ -13,7 +13,7 @@ from .models import User, Team, Activity, Leaderboard, Workout
 
 @api_view(["GET"])
 def api_root(request, format=None):
-    base_url = "http://localhost:8000/"
+    base_url = "https://obscure-tribble-64wxvqwjr45fr55w-8000.app.github.dev/"
     return Response(
         {
             "users": base_url + "api/users/",
