@@ -134,3 +134,14 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 # Add the codespace Django REST API endpoint suffix
 CODESPACE_SUFFIX = "/api/v1/"
+
+# REST Framework settings
+REST_FRAMEWORK = {
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+    'URL_FIELD_NAME': 'url'
+}
+
+# Configure URLs to use the codespace suffix
+REST_FRAMEWORK['URL_FIELD_NAME'] = f'{CODESPACE_SUFFIX.strip("/")}/'
