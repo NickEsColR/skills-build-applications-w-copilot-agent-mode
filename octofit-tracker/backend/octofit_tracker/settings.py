@@ -25,7 +25,11 @@ SECRET_KEY = "your-secret-key"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "*"]
+# Update ALLOWED_HOSTS to include GitHub Codespace URLs pattern
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "*.app.github.dev"]
+
+# API Base URL for codespace environment
+API_BASE_URL = "https://obscure-tribble-64wxvqwjr45fr55w-8000.app.github.dev"
 
 
 # Application definition
@@ -137,11 +141,11 @@ CODESPACE_SUFFIX = "/api/v1/"
 
 # REST Framework settings
 REST_FRAMEWORK = {
-    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10,
-    'URL_FIELD_NAME': 'url'
+    "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.URLPathVersioning",
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 10,
+    "URL_FIELD_NAME": "url",
 }
 
 # Configure URLs to use the codespace suffix
-REST_FRAMEWORK['URL_FIELD_NAME'] = f'{CODESPACE_SUFFIX.strip("/")}/'
+REST_FRAMEWORK["URL_FIELD_NAME"] = f'{CODESPACE_SUFFIX.strip("/")}/'
